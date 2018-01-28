@@ -1,0 +1,121 @@
+
+
+ <div class="Absolute-Center is-Responsive">
+<div class="cover-container">
+	<header class="masthead mb-auto">
+		<div class="inner">
+			<h3 class="masthead-brand">::: Votaciones 2018 ::: </h3>
+			<nav class="nav nav-masthead justify-content-center">
+				<a class="nav-link">{{currentUser.name}} {{currentUser.lastname}} | {{currentUser.course}} | {{currentUser.location}}</a>
+			</nav>
+		</div>
+	</header>
+</div>
+<br>
+<br>
+<div class="jumbotron-fluid" [hidden]="!personeroActivated">
+	<div class="container">
+	<hr>
+		<h2>Elije al personero</h2>
+		<div class="card-deck">
+			<div class="card card_border text-white bg-dark mb-3"
+				style="max-width: 18rem; min-width: 12rem;"
+				*ngFor="let personero of personeros">
+				<img class="card-img-top" src="{{personero.pictureURI}}" alt="Card image cap">
+				<div class="card-header">
+					<h5>{{personero.name}} {{personero.lastname}}</h5>
+				</div>
+				<div class="card-body">
+					<h6 class="card-title">NÚMERO: {{personero.candidatenumber}} |
+						Grado: {{personero.grade}}</h6>
+				</div>
+				<a (click)="personeroVote(personero)" class="btn btn-primary">Elegir</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="jumbotron-fluid" [hidden]="!contrallorActivated">
+<hr>
+	<div class="container">
+		<h2>Elije al contralor</h2>
+		<div class="card-deck">
+			<div class="card card_border text-white bg-info mb-3"
+				style="max-width: 18rem; min-width: 12rem;"
+				*ngFor="let contrallor of contrallors">
+				<img class="card-img-top" src="{{contrallor.pictureURI}}" alt="Card image cap">
+				<div class="card-header">
+					<h5>{{contrallor.name}} {{contrallor.lastname}}</h5>
+				</div>
+				<div class="card-body">
+					<h6 class="card-title">NÚMERO: {{contrallor.candidatenumber}}
+						| Grado: {{contrallor.grade}}</h6>
+				</div>
+				<a (click)="contrallorVote(contrallor)" class="btn btn-primary">Elegir</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="jumbotron-fluid"
+	[hidden]="contrallorActivated || personeroActivated">
+	<div class="container">
+	<hr>
+		<h2>Confirma tu votación</h2>
+		<div class="card-deck">
+			<div class="card card_border text-white bg-primary mb-3"
+				style="max-width: 18rem; min-width: 12rem;">
+				<img class="card-img-top" src="{{personeroChosen.pictureURI}}" alt="Card image cap">
+				<div class="card-header">
+					<h5>{{personeroChosen.name}} {{personeroChosen.lastname}}</h5>
+				</div>
+				<div class="card-body">
+					<h6 class="card-title">NÚMERO:
+						{{personeroChosen.candidatenumber}}</h6>
+					<h6 class="card-title">GRADO: {{personeroChosen.grade}} </h6>
+					<h6 class="card-title">PERSONERO</h6>
+				</div>
+			</div>
+
+			<div class="card card_border text-white bg-primary mb-3"
+				style="max-width: 18rem; min-width: 12rem;">
+				<img class="card-img-top" src="{{contrallorChosen.pictureURI}}" alt="Card image cap">
+				<div class="card-header">
+					<h5>{{contrallorChosen.name}} {{contrallorChosen.lastname}}</h5>
+				</div>
+				<div class="card-body">
+					<h6 class="card-title">NÚMERO:
+						{{contrallorChosen.candidatenumber}}</h6>
+					<h6 class="card-title">GRADO: {{contrallorChosen.grade}} </h6>
+					<h6 class="card-title">CONTRALOR</h6>
+				</div>
+			</div>
+
+			<div>
+				<div class="card-body">
+					<h5 class="card-title">
+						<a (click)="confirmElection()" class="btn btn-success">¿ Deseas Confirmar tu elección ?</a>
+					</h5>
+					<h5 class="card-title">
+						<a (click)="cancelElection()" class="btn btn-warning">¿ Deseas Modificar tu elección?</a>
+					</h5>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+

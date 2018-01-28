@@ -1,0 +1,72 @@
+
+<div class="container">
+  <div class="row">
+    <div class="Absolute-Center is-Responsive">
+      <div class="col-sm-12 col-md-10 col-md-offset-1">
+        <h1  align="center" class="mb-3 font-weight-normal">::: Votaciones 2018 :::</h1>
+		<h3  align="center" class="h3 mb-3 font-weight-normal">Ingrese sus credenciales</h3>
+        <form class="form-signin" name="form"
+			(ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
+			<div class="form-group"
+				[ngClass]="{ 'has-error': f.submitted && !username.valid }">
+				<label for="username" class="sr-only">Username</label> <input
+					type="text" class="form-control" name="username"
+					[(ngModel)]="model.username" #username="ngModel" required
+					placeholder="Número de Identificación" />
+				<div *ngIf="f.submitted && !username.valid" class="help-block">Identificación
+					es requerida!</div>
+			</div>
+			<div class="form-group"
+				[ngClass]="{ 'has-error': f.submitted && !password.valid }">
+				<label for="password" class="sr-only">Password</label> <input
+					type="password" class="form-control" name="password"
+					[(ngModel)]="model.password" #password="ngModel" required
+					placeholder="Contraseña" />
+				<div *ngIf="f.submitted && !password.valid" class="help-block">Contraseña
+					es requerida!</div>
+			</div>
+			<button type="submit" ng-disabled="form.$invalid || dataLoading"
+				class="btn btn-primary">
+				<i class="fa fa-key"></i> Ingresar
+			</button>
+		</form>    
+      </div>  
+    </div>    
+  </div>
+</div>
+<!--  div class="container">
+		<img class="mb-4"
+			src="/assets/escudo.png"
+			alt="" width="100" height="100">
+		<h1 class="mb-3 font-weight-normal">::: Votaciones 2018 :::</h1>
+		<h3 class="h3 mb-3 font-weight-normal">Ingrese sus credenciales</h3>
+
+		<label for="inputIdentification" class="sr-only">Identificación</label>
+		<form class="form-signin" name="form"
+			(ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
+			<div class="form-group"
+				[ngClass]="{ 'has-error': f.submitted && !username.valid }">
+				<label for="username" class="sr-only">Username</label> <input
+					type="text" class="form-control" name="username"
+					[(ngModel)]="model.username" #username="ngModel" required
+					placeholder="Número de Identificación" />
+				<div *ngIf="f.submitted && !username.valid" class="help-block">Identificación
+					es requerida!</div>
+			</div>
+			<div class="form-group"
+				[ngClass]="{ 'has-error': f.submitted && !password.valid }">
+				<label for="password" class="sr-only">Password</label> <input
+					type="password" class="form-control" name="password"
+					[(ngModel)]="model.password" #password="ngModel" required
+					placeholder="Contraseña" />
+				<div *ngIf="f.submitted && !password.valid" class="help-block">Contraseña
+					es requerida!</div>
+			</div>
+			<button type="submit" ng-disabled="form.$invalid || dataLoading"
+				class="btn btn-primary">
+				<i class="fa fa-key"></i> Ingresar
+			</button>
+		</form>
+		<p class="mt-5 mb-3 text-muted">&copy; ::: neckron ::: 2018</p>
+
+</div-->
