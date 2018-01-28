@@ -2,14 +2,15 @@ import {Injectable} from '@angular/core';
 import {Http, Headers, RequestOptions} from '@angular/http';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
-import {AppSettings} from 'app/app.settings';
+//import {AppSettings} from 'app/app.settings';
+import { environment } from '../../environments/environment';
 
 @Injectable()
 export class AuthService {
   constructor(private http: Http) {}
 
   login(username: string, password: string) {
-    return this.http.post(AppSettings.API_ENDPOINT + 'user/login', {username: username, password: password});
+    return this.http.post(environment.apiUrl + 'user/login', {username: username, password: password});
            /* .map(user => {
                 // login successful if there's a jwt token in the response
                 if (user) {

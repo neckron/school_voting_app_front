@@ -1,7 +1,8 @@
 import {Injectable} from '@angular/core';
 import {Http, Headers, RequestOptions} from '@angular/http';
 import 'rxjs/add/operator/map';
-import {AppSettings} from '../app.settings';
+//import {AppSettings} from '../app.settings';
+import { environment } from '../../environments/environment';
 
 @Injectable()
 export class CandidateService {
@@ -20,7 +21,7 @@ export class CandidateService {
   }
 
   getCandidates(type) {
-    return this.http.get(AppSettings.API_ENDPOINT + 'candidate/' + type);
+    return this.http.get(environment.apiUrl + 'candidate/' + type);
   }
 
   vote(personeroId: string, contrallorId: string) {
@@ -31,7 +32,7 @@ export class CandidateService {
     headers.append('x-access-token', token);
     headers.append('Content-Type', 'application/json');
     const options = new RequestOptions({headers : headers});
-    return this.http.post(AppSettings.API_ENDPOINT + 'user/vote',
+    return this.http.post(environment.apiUrl + 'user/vote',
       JSON.stringify({personVoteId: personeroId, contrallorVoteId: contrallorId, userId: userId }), options)
       .map(result => result);
   }
