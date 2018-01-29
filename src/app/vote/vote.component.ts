@@ -26,7 +26,6 @@ export class VoteComponent implements OnInit {
 
   ngOnInit() {
     this.currentUser = JSON.parse(localStorage.getItem('currentUser')).user;
-    // console.log(this.currentUser);
 
     this.candidateService.getContrallor().
       map(res => res.json()).

@@ -22,6 +22,8 @@ import { LogoutComponent } from './logout/logout.component';
 import { CandidateService } from './services/candidate.service';
 import { HttpModule} from '@angular/http';
 import { ChartsModule } from 'ng2-charts';
+import { AlertComponent } from './alert/alert.component';
+import { AlertService } from './services/alert.service';
 
 
 
@@ -39,21 +41,14 @@ import { ChartsModule } from 'ng2-charts';
     LoginComponent,
     HeaderComponent,
     VoteComponent,
-    LogoutComponent
+    LogoutComponent,
+    AlertComponent
   ],
   providers: [
     AuthGuard,
     AuthService,
     CandidateService,
-    /*UserService,
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: JwtInterceptor,
-      multi: true
-    },*/
-
-    // provider used to create fake backend
-    // fakeBackendProvider
+    AlertService
   ],
   bootstrap: [AppComponent]
 })

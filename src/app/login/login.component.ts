@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthService} from '../services/auth.service';
 import {Router, ActivatedRoute} from '@angular/router';
+import {AlertService} from '../services/alert.service';
 import 'rxjs/add/operator/map';
 
 @Component({
@@ -18,6 +19,7 @@ export class LoginComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private authService: AuthService,
+    private alertService: AlertService
   ) {}
 
   ngOnInit() {
@@ -39,35 +41,36 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['vote']);
         }
         localStorage.setItem('currentUser', JSON.stringify(data));
+        this.alertService.info('Bienvenido');
       },
       error => {
+        this.alertService.error('Usuario o clave inválido. Intenta nuevamente!');
         console.log(error);
-        this.loading = false;
       });
-  /*subscribe((data) => {
-    if (data.user.userrole === 'ADMIN') {
-      this.router.navigate(['home']);
-    } else {
-      this.router.navigate(['vote']);
-    }
-  },
-  error => {
-    console.log(error);
-    this.loading = false;
-  });*/
-  /*.subscribe(
-  data => {
-    console.log(data)
-   if (data.user.userrole === 'ADMIN') {
-      this.router.navigate(['home']);
-    } else {
-      this.router.navigate(['vote']);
-    }
-  },
-  error => {
-    console.log(error);
-    this.loading = false;
-  });*/
-}
+    /*subscribe((data) => {
+      if (data.user.userrole === 'ADMIN') {
+        this.router.navigate(['home']);
+      } else {
+        this.router.navigate(['vote']);
+      }
+    },
+    error => {
+      console.log(error);
+      this.loading = false;
+    });*/
+    /*.subscribe(
+    data => {
+      console.log(data)
+     if (data.user.userrole === 'ADMIN') {
+        this.router.navigate(['home']);
+      } else {
+        this.router.navigate(['vote']);
+      }
+    },
+    error => {
+      console.log(error);
+      this.loading = false;
+    });*/
+  }
 
 }

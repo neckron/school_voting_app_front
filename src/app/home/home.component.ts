@@ -34,7 +34,6 @@ export class HomeComponent implements OnInit {
       map(res => res.json()).
       subscribe((data) => {
         for (const entry of data) {
-          console.log('contralor ' + entry);
           this.contrallorChartLabels.push(entry.candidate[0].name);
           this.contrallorChartData.push(entry.quantity);
         }
@@ -44,7 +43,6 @@ export class HomeComponent implements OnInit {
       map(res => res.json()).
       subscribe((data) => {
         for (const entry of data) {
-          console.log('personero ' + entry);
           this.personeroChartLabels.push(entry.candidate[0].name);
           this.personeroChartData.push(entry.quantity);
         }

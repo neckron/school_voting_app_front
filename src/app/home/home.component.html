@@ -1,33 +1,54 @@
-<div class="cover-container">
-	<header class="masthead mb-auto">
-		<div class="inner">
-			<h3 class="masthead-brand">::: Votaciones 2018 :::</h3>
-			<nav class="nav nav-masthead justify-content-center">
-				<a class="nav-link">{{currentUser.name}}
-					{{currentUser.lastname}} | {{currentUser.course}} |
-					{{currentUser.location}}</a>
-			</nav>
-		</div>
-	</header>
-</div>
+<br>
+<div class="container login-absolute-center">
+	<div class="cover-container">
+		<header class="masthead mb-auto">
+			<div class="inner">
+				<h3 class="masthead-brand">::: Votaciones 2018 :::</h3>
+				<nav class="nav nav-masthead justify-content-center">
+					<a class="nav-link">{{currentUser.name}}</a>
+				</nav>
+			</div>
+		</header>
+	</div>
+	<app-alert></app-alert>
 
-	<div class="container">
-		<hr>
-		<div style="display: block">
-			<canvas baseChart [data]="contrallorChartData"
-				[labels]="contrallorChartLabels" [options]="chartOptions"
-				[chartType]="contrallorChartType"
-				(chartHover)="chartHovered($event)" [colors]="chartColors"
-				[legend]="chartLegend" (chartClick)="chartClicked($event)"></canvas>
+	<br> <br>
+	<hr>
+
+	<div class="card-deck">
+		<div class="card card_border text-white bg-dark mb-3"
+			style="max-width: 30rem; min-width: 20rem;">
+			<div class="card-header">Resultados Personero</div>
+			<div class="card-body">
+				<div style="display: block">
+					<canvas class="chart" baseChart [data]="contrallorChartData"
+						[labels]="contrallorChartLabels" [options]="chartOptions"
+						[chartType]="contrallorChartType"
+						(chartHover)="chartHovered($event)" [colors]="chartColors"
+						[legend]="chartLegend" (chartClick)="chartClicked($event)"></canvas>
+				</div>
+			</div>
+		</div>
+		<div class="card card_border text-white bg-dark mb-3"
+			style="max-width: 30rem; min-width: 20rem;">
+			<div class="card-header">Resultados Contralor</div>
+			<div class="card-body">
+				<div style="display: block">
+					<canvas class="chart" baseChart [data]="personeroChartData"
+						[labels]="personeroChartLabels" [options]="chartOptions"
+						[chartType]="personeroChartType" [legend]="chartLegend"
+						[colors]="chartColors" (chartHover)="chartHovered($event)"
+						(chartClick)="chartClicked($event)"></canvas>
+				</div>
+			</div>
 		</div>
 	</div>
 
 
 
-<div style="display: block">
-	<canvas baseChart [data]="personeroChartData"
-		[labels]="personeroChartLabels" [options]="chartOptions"
-		[chartType]="personeroChartType" [legend]="chartLegend"
-		[colors]="chartColors" (chartHover)="chartHovered($event)"
-		(chartClick)="chartClicked($event)"></canvas>
+
+
 </div>
+
+
+
