@@ -21,12 +21,12 @@ export class HomeComponent implements OnInit {
   public chartOptions: any = {responsive: true};
   public chartLegend = true;
 
-  private chartColors: any[] = [
-    { 
-      backgroundColor: ["#b8436d", "#00d9f9", "#a4c73c", "#a4add3"] ,
-      borderColor: ["#333333" ,"#333333", "#333333","#333333"]
+  public chartColors: any[] = [
+    {
+      backgroundColor: ["#b8436d", "#00d9f9", "#a4c73c", "#a4add3"],
+      borderColor: ["#333333", "#333333", "#333333", "#333333"]
     }
-   ];
+  ];
 
   constructor(private candidateService: CandidateService) {
     this.currentUser = JSON.parse(localStorage.getItem('currentUser')).user;
