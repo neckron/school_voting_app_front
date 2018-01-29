@@ -20,8 +20,9 @@ import {LoginComponent} from './login/login.component';
 import { VoteComponent } from './vote/vote.component';
 import { LogoutComponent } from './logout/logout.component';
 import { CandidateService } from './services/candidate.service';
-// import {RegisterComponent} from './register/index';
 import { HttpModule} from '@angular/http';
+import { ChartsModule } from 'ng2-charts';
+
 
 
 @NgModule({
@@ -29,6 +30,7 @@ import { HttpModule} from '@angular/http';
     BrowserModule,
     FormsModule,
     HttpModule,
+    ChartsModule,
     routing
   ],
   declarations: [

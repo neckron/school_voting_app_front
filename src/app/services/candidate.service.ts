@@ -1,8 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Http, Headers, RequestOptions} from '@angular/http';
 import 'rxjs/add/operator/map';
-//import {AppSettings} from '../app.settings';
-import { environment } from '../../environments/environment';
+import {environment} from '../../environments/environment';
 
 @Injectable()
 export class CandidateService {
@@ -28,13 +27,20 @@ export class CandidateService {
     const headers = new Headers();
     const token = JSON.parse(localStorage.getItem('currentUser')).token;
     const userId = JSON.parse(localStorage.getItem('currentUser')).user._id;
-   // console.log('votando ' + JSON.parse(localStorage.getItem('currentUser'))._body);
     headers.append('x-access-token', token);
     headers.append('Content-Type', 'application/json');
-    const options = new RequestOptions({headers : headers});
+    const options = new RequestOptions({headers: headers});
     return this.http.post(environment.apiUrl + 'user/vote',
-      JSON.stringify({personVoteId: personeroId, contrallorVoteId: contrallorId, userId: userId }), options)
+      JSON.stringify({personVoteId: personeroId, contrallorVoteId: contrallorId, userId: userId}), options)
       .map(result => result);
+  }
+
+  getResultsContrallor() {
+    return this.http.get(environment.apiUrl + 'vote/results/contrallor');
+  }
+
+  getResultsPersonero() {
+    return this.http.get(environment.apiUrl + 'vote/results/personero');
   }
 
 }

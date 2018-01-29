@@ -1,15 +1,33 @@
+<div class="cover-container">
+	<header class="masthead mb-auto">
+		<div class="inner">
+			<h3 class="masthead-brand">::: Votaciones 2018 :::</h3>
+			<nav class="nav nav-masthead justify-content-center">
+				<a class="nav-link">{{currentUser.name}}
+					{{currentUser.lastname}} | {{currentUser.course}} |
+					{{currentUser.location}}</a>
+			</nav>
+		</div>
+	</header>
+</div>
 
-<div class="cover-container d-flex h-100 p-3 flex-column">
-      <header class="masthead mb-auto">
-        <div class="inner">
-          <h3 class="masthead-brand">Cover</h3>
-          <nav class="nav nav-masthead justify-content-center">
-            <a class="nav-link active" href="#">Home</a>
-            <a class="nav-link" href="#">Features</a>
-            <a class="nav-link" href="#">Contact</a>
-          </nav>
-        </div>
-      </header>
-      
-    <app-logout></app-logout>
-    <app-header></app-header>
+	<div class="container">
+		<hr>
+		<div style="display: block">
+			<canvas baseChart [data]="contrallorChartData"
+				[labels]="contrallorChartLabels" [options]="chartOptions"
+				[chartType]="contrallorChartType"
+				(chartHover)="chartHovered($event)" [colors]="chartColors"
+				[legend]="chartLegend" (chartClick)="chartClicked($event)"></canvas>
+		</div>
+	</div>
+
+
+
+<div style="display: block">
+	<canvas baseChart [data]="personeroChartData"
+		[labels]="personeroChartLabels" [options]="chartOptions"
+		[chartType]="personeroChartType" [legend]="chartLegend"
+		[colors]="chartColors" (chartHover)="chartHovered($event)"
+		(chartClick)="chartClicked($event)"></canvas>
+</div>
