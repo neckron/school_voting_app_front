@@ -8,6 +8,10 @@
 		<hr>
 		<h1 align="center">::: Voto Registrado :::</h1>
 		<h1 align="center">::: Gracias por participar! :::</h1>
+		<button  [routerLink]="['login']" type="submit" ng-disabled="form.$invalid || dataLoading"
+			class="btn btn-primary text-center">
+			<i class="fa fa-key"></i> Volver al incio
+		</button>
 	</div>
 </div>
 <hr>

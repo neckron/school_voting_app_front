@@ -56,11 +56,12 @@ export class VoteComponent implements OnInit {
   }
 
   confirmElection() {
-    this.candidateService.vote(this.contrallorChosen._id, this.personeroChosen._id)
+    this.candidateService.vote(this.personeroChosen._id, this.contrallorChosen._id)
       .subscribe(
       data => {
         this.auth.logout();
         this.router.navigate(['logout']);
       });
+
   }
 }

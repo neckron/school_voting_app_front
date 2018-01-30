@@ -21,7 +21,7 @@
 			<div class="card-header">Resultados Personero</div>
 			<div class="card-body">
 				<div style="display: block">
-					<canvas class="chart" baseChart [data]="contrallorChartData"
+					<canvas  baseChart [data]="contrallorChartData"
 						[labels]="contrallorChartLabels" [options]="chartOptions"
 						[chartType]="contrallorChartType"
 						(chartHover)="chartHovered($event)" [colors]="chartColors"
@@ -34,7 +34,7 @@
 			<div class="card-header">Resultados Contralor</div>
 			<div class="card-body">
 				<div style="display: block">
-					<canvas class="chart" baseChart [data]="personeroChartData"
+					<canvas baseChart [data]="personeroChartData"
 						[labels]="personeroChartLabels" [options]="chartOptions"
 						[chartType]="personeroChartType" [legend]="chartLegend"
 						[colors]="chartColors" (chartHover)="chartHovered($event)"

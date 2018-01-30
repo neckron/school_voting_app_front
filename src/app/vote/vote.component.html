@@ -1,9 +1,8 @@
 <div class="cover-container">
 	<header class="masthead mb-auto">
 		<div class="inner">
-			<h3 class="masthead-brand">::: Votaciones 2018 ::: </h3>
 			<nav class="nav nav-masthead justify-content-center">
-				<a class="nav-link">{{currentUser.name}} {{currentUser.lastname}} | {{currentUser.course}} | {{currentUser.location}}</a>
+				<h6 class="nav-link">{{currentUser.name}} | {{currentUser.course}} | {{currentUser.location}}</h6>
 			</nav>
 		</div>
 	</header>
@@ -61,7 +60,7 @@
 	<hr>
 		<h2>Confirma tu votación</h2>
 		<div class="card-deck">
-			<div class="card card_border text-white bg-primary mb-3"
+			<div class="card card_border text-white bg-info mb-3"
 				style="max-width: 18rem; min-width: 12rem;">
 				<img class="card-img-top" src="{{personeroChosen.pictureURI}}" alt="Card image cap">
 				<div class="card-header">
@@ -75,7 +74,7 @@
 				</div>
 			</div>
 
-			<div class="card card_border text-white bg-primary mb-3"
+			<div class="card card_border text-white bg-info mb-3"
 				style="max-width: 18rem; min-width: 12rem;">
 				<img class="card-img-top" src="{{contrallorChosen.pictureURI}}" alt="Card image cap">
 				<div class="card-header">
@@ -92,10 +91,10 @@
 			<div>
 				<div class="card-body">
 					<h5 class="card-title">
-						<a (click)="confirmElection()" class="btn btn-success">¿ Deseas Confirmar tu elección ?</a>
+						<a (click)="confirmElection()" class="btn btn-success">¿Deseas Confirmar tu elección?</a>
 					</h5>
 					<h5 class="card-title">
-						<a (click)="cancelElection()" class="btn btn-warning">¿ Deseas Modificar tu elección?</a>
+						<a (click)="cancelElection()" class="btn btn-warning">¿Deseas Modificar tu elección?</a>
 					</h5>
 				</div>
 			</div>

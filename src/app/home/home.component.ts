@@ -23,14 +23,17 @@ export class HomeComponent implements OnInit {
 
   public chartColors: any[] = [
     {
-      backgroundColor: ["#b8436d", "#00d9f9", "#a4c73c", "#a4add3"],
-      borderColor: ["#333333", "#333333", "#333333", "#333333"]
+      backgroundColor: ["#FF0000", "#FF7400", "#00FFFF", "#00FF00", "#CB5AF3"],
+      borderColor: ["#333333", "#333333", "#333333", "#333333", "#333333"]
     }
   ];
 
   constructor(private candidateService: CandidateService) {
     this.currentUser = JSON.parse(localStorage.getItem('currentUser')).user;
-    this.candidateService.getResultsContrallor().
+  }
+
+  ngOnInit() {
+  this.candidateService.getResultsContrallor().
       map(res => res.json()).
       subscribe((data) => {
         for (const entry of data) {
@@ -47,12 +50,7 @@ export class HomeComponent implements OnInit {
           this.personeroChartData.push(entry.quantity);
         }
       });
-
-
-
   }
-
-  ngOnInit() {}
 
   // events
   public chartClicked(e: any): void {
