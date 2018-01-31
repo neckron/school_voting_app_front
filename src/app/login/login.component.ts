@@ -54,11 +54,6 @@ export class LoginComponent implements OnInit {
       });
 
 
-    this.authService.alreadyVoted(user)
-      .map(res => res.json())
-      .subscribe((data) => {
-        console.log(data);
-      });
 
   }
 
