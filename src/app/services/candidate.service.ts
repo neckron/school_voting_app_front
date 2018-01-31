@@ -42,5 +42,11 @@ export class CandidateService {
   getResultsPersonero() {
     return this.http.get(environment.apiUrl + 'vote/results/personero');
   }
+  
+  getTotalVoting() {
+    return this.http.get(environment.apiUrl + 'vote/results/general');
+  }
+  
+  
 
 }

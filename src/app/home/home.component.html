@@ -42,6 +42,19 @@
 				</div>
 			</div>
 		</div>
+		<div class="card card_border text-white bg-dark mb-3"
+			style="max-width: 30rem; min-width: 20rem;">
+			<div class="card-header">Participación</div>
+			<div class="card-body">
+				<div style="display: block">
+					<canvas baseChart [data]="generalChartData"
+						[labels]="generalChartLabels" [options]="chartOptions"
+						[chartType]="generalChartType" [legend]="chartLegend"
+						[colors]="chartColors" (chartHover)="chartHovered($event)"
+						(chartClick)="chartClicked($event)"></canvas>
+				</div>
+			</div>
+		</div>
 	</div>
 
 

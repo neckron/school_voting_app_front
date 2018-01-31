@@ -20,6 +20,9 @@ export class HomeComponent implements OnInit {
   personeroChartType: String = 'pie';
   public chartOptions: any = {responsive: true};
   public chartLegend = true;
+  generalChartLabels: string[] = [];
+  generalChartData: number[] = [];
+  generalChartType: String = 'pie';
 
   public chartColors: any[] = [
     {
@@ -33,7 +36,7 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
-  this.candidateService.getResultsContrallor().
+    this.candidateService.getResultsContrallor().
       map(res => res.json()).
       subscribe((data) => {
         for (const entry of data) {
@@ -48,6 +51,22 @@ export class HomeComponent implements OnInit {
         for (const entry of data) {
           this.personeroChartLabels.push(entry.candidate[0].name);
           this.personeroChartData.push(entry.quantity);
+        }
+      });
+
+    this.candidateService.getTotalVoting().
+      map(res => res.json()).
+      subscribe((data) => {
+        for (const entry of data) {
+          if (entry._id === true) {
+            console.log(entry);
+            this.generalChartLabels.push('Han votado');
+            this.generalChartData.push(entry.quantity);
+          } else if (entry._id === false) {
+            console.log(entry);
+            this.generalChartLabels.push('No han votado');
+            this.generalChartData.push(entry.quantity);
+          }
         }
       });
   }
