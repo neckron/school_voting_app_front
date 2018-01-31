@@ -45,11 +45,11 @@ export class LoginComponent implements OnInit {
             this.alertService.info('Bienvenido');
         } else {
             this.router.navigate(['login']);
-            this.alertService.error('Ya votaste , No puedes hacerlo nuevamente!');
+            this.alertService.error('¡Ya votaste , No puedes hacerlo nuevamente!');
         }
       },
       error => {
-        this.alertService.error('Usuario o clave inválido. Intenta nuevamente!');
+        this.alertService.error('¡Usuario o clave inválido. Intenta nuevamente!');
         console.log(error);
       });
 

@@ -18,7 +18,7 @@
 							type="text" class="form-control" name="username"
 							[(ngModel)]="model.username" #username="ngModel" required
 							placeholder="Número de Identificación" />
-						<div *ngIf="f.submitted && !username.valid" class="help-block">Identificación
+						<div *ngIf="f.submitted && !username.valid" class="help-block">¡Identificación
 							es requerida!</div>
 					</div>
 					<div class="form-group"
@@ -27,7 +27,7 @@
 							type="password" class="form-control" name="password"
 							[(ngModel)]="model.password" #password="ngModel" required
 							placeholder="Contraseña" />
-						<div *ngIf="f.submitted && !password.valid" class="help-block">Contraseña
+						<div *ngIf="f.submitted && !password.valid" class="help-block">¡Contraseña
 							es requerida!</div>
 					</div>
 					<div class="form-group">
