@@ -23,8 +23,8 @@
 					<h5>{{personero.name}} {{personero.lastname}}</h5>
 				</div>
 				<div class="card-body">
-					<h6 class="card-title">NÚMERO: {{personero.candidatenumber}} |
-						Grado: {{personero.grade}}</h6>
+					<h6 class="card-title">NÚMERO: {{personero.candidatenumber}}</h6>
+					<h6 class="card-title" [hidden]="personero.grade == ''">Grado: {{personero.grade}}</h6>
 				</div>
 				<a (click)="personeroVote(personero)" class="btn btn-primary">Elegir</a>
 			</div>
@@ -45,8 +45,8 @@
 					<h5>{{contrallor.name}} {{contrallor.lastname}}</h5>
 				</div>
 				<div class="card-body">
-					<h6 class="card-title">NÚMERO: {{contrallor.candidatenumber}}
-						| Grado: {{contrallor.grade}}</h6>
+					<h6 class="card-title">NÚMERO: {{contrallor.candidatenumber}}</h6>
+					<h6 class="card-title" [hidden]="contrallor.grade == ''">Grado: {{contrallor.grade}}</h6>
 				</div>
 				<a (click)="contrallorVote(contrallor)" class="btn btn-primary">Elegir</a>
 			</div>
@@ -69,7 +69,7 @@
 				<div class="card-body">
 					<h6 class="card-title">NÚMERO:
 						{{personeroChosen.candidatenumber}}</h6>
-					<h6 class="card-title">GRADO: {{personeroChosen.grade}} </h6>
+					<h6 class="card-title" [hidden]="personeroChosen.grade == ''">GRADO: {{personeroChosen.grade}} </h6>
 					<h6 class="card-title">PERSONERO</h6>
 				</div>
 			</div>
@@ -83,7 +83,7 @@
 				<div class="card-body">
 					<h6 class="card-title">NÚMERO:
 						{{contrallorChosen.candidatenumber}}</h6>
-					<h6 class="card-title">GRADO: {{contrallorChosen.grade}} </h6>
+					<h6 class="card-title" [hidden]="contrallorChosen.grade == ''">GRADO: {{contrallorChosen.grade}} </h6>
 					<h6 class="card-title">CONTRALOR</h6>
 				</div>
 			</div>
