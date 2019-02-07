@@ -11,7 +11,7 @@
 
 /* Links */
 a, a:focus, a:hover {
-	color: #fff;
+	color: #0F4AA1;
 }
 
 /* Custom default button */
@@ -26,14 +26,14 @@ a, a:focus, a:hover {
  * Base structure
  */
 html, body {
-	height: 100%;
-	background-color: #333;
+	height: 90%;
+	background-color: #0E50A0;
 }
 
 body {
-	display: -ms-flexbox;
-	display: -webkit-box;
-	display: flex;
+	/*#display: -ms-flexbox;
+	#display: -webkit-box;
+	display: flex;*/
 	-ms-flex-pack: center;
 	color: #fff;
 	text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5);
@@ -178,4 +178,10 @@ width: 100% !important;
 max-width: 1000px;
 height: auto !important;
 
+}
+
+.card {
+	margin: 0 auto; /* Added */
+	float: none; /* Added */
+	margin-bottom: 10px; /* Added */
 }
