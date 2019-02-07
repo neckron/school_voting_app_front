@@ -24,7 +24,7 @@
 				</div>
 				<div class="card-body">
 					<h6 class="card-title">NÚMERO: {{personero.candidatenumber}}</h6>
-					<h6 class="card-title" [hidden]="personero.grade == ''">Grado: {{personero.grade}}</h6>
+					<h6 class="card-title" [hidden]="personero.grade == ''">GRADO: {{personero.grade}}</h6>
 				</div>
 				<a (click)="personeroVote(personero)" class="btn btn-primary">Elegir</a>
 			</div>
@@ -46,7 +46,7 @@
 				</div>
 				<div class="card-body">
 					<h6 class="card-title">NÚMERO: {{contrallor.candidatenumber}}</h6>
-					<h6 class="card-title" [hidden]="contrallor.grade == ''">Grado: {{contrallor.grade}}</h6>
+					<h6 class="card-title" [hidden]="contrallor.grade == ''">GRADO: {{contrallor.grade}}</h6>
 				</div>
 				<a (click)="contrallorVote(contrallor)" class="btn btn-primary">Elegir</a>
 			</div>
@@ -87,7 +87,8 @@
 					<h6 class="card-title">CONTRALOR</h6>
 				</div>
 			</div>
-
+		</div>
+		<div>
 			<div>
 				<div class="card-body">
 					<h5 class="card-title">
@@ -98,7 +99,6 @@
 					</h5>
 				</div>
 			</div>
-
 		</div>
 	</div>
 </div>
