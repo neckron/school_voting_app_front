@@ -12,7 +12,7 @@
     "postinstall": "ng build --target=production"
   },
   "engines": {
-    "node": "9.3.0",
+    "node": "10.13",
     "npm": "5.6.0"
   },
   "private": true,
