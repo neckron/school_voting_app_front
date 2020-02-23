@@ -17,6 +17,7 @@
   },
   "private": true,
   "dependencies": {
+    "@angular-devkit/core": "^9.0.3",
     "@angular/animations": "^5.1.0",
     "@angular/cli": "1.6.0",
     "@angular/common": "^5.1.0",
@@ -28,7 +29,6 @@
     "@angular/platform-browser": "^5.1.0",
     "@angular/platform-browser-dynamic": "^5.1.0",
     "@angular/router": "^5.1.0",
-    "@angular-devkit/core" : "^5.1.0",
     "chart.js": "^2.9.3",
     "core-js": "^2.4.1",
     "express": "^4.16.2",
