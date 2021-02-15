@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://afl-voting-api.herokuapp.com/api/',
+  apiUrl: 'https://elections-afl-api.herokuapp.com/api/',
 };
