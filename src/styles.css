@@ -3,10 +3,6 @@
  */
 .card_border {
 	border-color: transparent;
-	-webkit-box-shadow: 12px 8px 6px 6px #222222;
-	-moz-box-shadow: 12px 8px 6px 6px #222222;
-	box-shadow: 0 3px 15px 5px #222222;
-	padding: 3px 3px 3px 3px;
 }
 
 /* Links */
@@ -22,26 +18,21 @@ a, a:focus, a:hover {
 	border: .05rem solid #fff;
 }
 
-/*
- * Base structure
- */
-html, body {
-	height: 90%;
-	background-color: #a4b8c3ad;
-}
 
 body {
 	/*#display: -ms-flexbox;
 	#display: -webkit-box;
 	display: flex;*/
 	-ms-flex-pack: center;
-	color: #fff;
-	text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5);
+	background-color: #adbfc9;
+	padding: 5 , 5 , 5 , 5 ;
 }
 
-.cover-container {
-	max-width: 80em;
+.card-deck {
+	justify-content: center;
+	border-color: #adbfc9;
 }
+
 
 /*
  * Header
@@ -184,4 +175,9 @@ height: auto !important;
 	margin: 0 auto; /* Added */
 	float: none; /* Added */
 	margin-bottom: 10px; /* Added */
+	border-color: #adbfc9;
+}
+
+.card-img-top {
+    object-fit: cover;
 }

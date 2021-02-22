@@ -1,104 +1,100 @@
-<div class="cover-container">
+<div>
 	<header class="masthead mb-auto">
-		<div class="inner">
 			<nav class="nav nav-masthead justify-content-center">
-				<h6 class="nav-link">{{currentUser.name}} | {{currentUser.course}} | {{currentUser.location}}</h6>
+				<h6>{{currentUser.name}} | {{currentUser.course}} | {{currentUser.location}}</h6>
 			</nav>
-		</div>
 	</header>
 	<app-alert></app-alert>
 </div>
 <br>
 <br>
+
 <div class="jumbotron-fluid" [hidden]="!personeroActivated">
 	<div class="container">
-	<hr>
-		<h2>Elige al personero</h2>
+		<h2>Elige a la personera</h2>
 		<div class="card-deck">
-			<div class="card card_border text-white bg-info mb-3"
-				style="max-width: 18rem; min-width: 5rem;"
+			<div class="card card_border text-white bg-dark mb-3" style="max-width: 18rem; min-width: 12rem;"
 				*ngFor="let personero of personeros">
-				<img class="card-img-top" src="{{personero.pictureURI}}" alt="Card image cap">
+				<img class="card-img-top" src="assets/candidates/{{personero.pictureURI}}">
 				<div class="card-header">
-					<h5>{{personero.name}} {{personero.lastname}}</h5>
+					<h5><strong>{{personero.name}} {{personero.lastname}}</strong></h5>
 				</div>
 				<div class="card-body">
-					<h6 class="card-title" [hidden]="personero.grade == ''">NÚMERO: {{personero.candidatenumber}}</h6>
+					<h6 class="card-title" [hidden]="personero.grade == ''">NÚMERO: {{personero.candidatenumber}}
+					</h6>
 					<h6 class="card-title" [hidden]="personero.grade == ''">GRADO: {{personero.grade}}</h6>
 				</div>
-				<a (click)="personeroVote(personero)" class="btn btn-primary">Elegir</a>
+				<a (click)="personeroVote(personero)" class="btn btn-primary btn-lg"><i class="fas fa-vote-yea"></i>
+					Elegir</a>
 			</div>
 		</div>
 	</div>
 </div>
+
 
 <div class="jumbotron-fluid" [hidden]="!contrallorActivated">
-<hr>
+	<hr>
 	<div class="container">
-		<h2>Elige al contralor</h2>
+		<h2>Elige a la contralora</h2>
 		<div class="card-deck">
-			<div class="card card_border text-white bg-info mb-3"
-				style="max-width: 18rem; min-width: 12rem;"
+			<div class="card card_border text-white bg-dark mb-6" style="max-width: 18rem; min-width: 12rem;"
 				*ngFor="let contrallor of contrallors">
-				<img class="card-img-top" src="{{contrallor.pictureURI}}" alt="Card image cap">
+				<img class="card-img-top" src="assets/candidates/{{contrallor.pictureURI}}" alt="Card image cap">
 				<div class="card-header">
-					<h5>{{contrallor.name}} {{contrallor.lastname}}</h5>
+					<h5><strong>{{contrallor.name}} {{contrallor.lastname}}</strong></h5>
 				</div>
 				<div class="card-body">
-					<h6 class="card-title" [hidden]="contrallor.grade == ''">NÚMERO: {{contrallor.candidatenumber}}</h6>
+					<h6 class="card-title" [hidden]="contrallor.grade == ''">NÚMERO: {{contrallor.candidatenumber}}
+					</h6>
 					<h6 class="card-title" [hidden]="contrallor.grade == ''">GRADO: {{contrallor.grade}}</h6>
 				</div>
-				<a (click)="contrallorVote(contrallor)" class="btn btn-primary">Elegir</a>
+				<a (click)="contrallorVote(contrallor)" class="btn btn-lg btn-primary"><i class="fas fa-vote-yea"></i>
+					Elegir</a>
 			</div>
 		</div>
 	</div>
 </div>
 
-<div class="jumbotron-fluid"
-	[hidden]="contrallorActivated || personeroActivated">
+<div class="jumbotron-fluid" [hidden]="contrallorActivated || personeroActivated">
 	<div class="container">
-	<hr>
 		<h2>Confirma tu votación</h2>
 		<div class="card-deck">
-			<div class="card card_border text-white bg-info mb-3"
-				style="max-width: 18rem; min-width: 12rem;">
-				<img class="card-img-top" src="{{personeroChosen.pictureURI}}" alt="Card image cap">
+			<div class="card card_border text-white bg-dark mb-3" style="max-width: 18rem; min-width: 12rem;">
+				<img class="card-img-top" src="assets/candidates/{{personeroChosen.pictureURI}}" alt="Card image cap">
 				<div class="card-header">
 					<h5>{{personeroChosen.name}} {{personeroChosen.lastname}}</h5>
 				</div>
 				<div class="card-body">
 					<h6 class="card-title">NÚMERO:
 						{{personeroChosen.candidatenumber}}</h6>
-					<h6 class="card-title" [hidden]="personeroChosen.grade == ''">GRADO: {{personeroChosen.grade}} </h6>
+					<h6 class="card-title" [hidden]="personeroChosen.grade == ''">GRADO: {{personeroChosen.grade}}
+					</h6>
 					<h6 class="card-title">PERSONERO</h6>
 				</div>
 			</div>
 
-			<div class="card card_border text-white bg-info mb-3"
-				style="max-width: 18rem; min-width: 12rem;">
-				<img class="card-img-top" src="{{contrallorChosen.pictureURI}}" alt="Card image cap">
+			<div class="card card_border text-white bg-dark mb-3" style="max-width: 18rem; min-width: 12rem;">
+				<img class="card-img-top" src="assets/candidates/{{contrallorChosen.pictureURI}}" alt="Card image cap">
 				<div class="card-header">
 					<h5>{{contrallorChosen.name}} {{contrallorChosen.lastname}}</h5>
 				</div>
 				<div class="card-body">
 					<h6 class="card-title">NÚMERO:
 						{{contrallorChosen.candidatenumber}}</h6>
-					<h6 class="card-title" [hidden]="contrallorChosen.grade == ''">GRADO: {{contrallorChosen.grade}} </h6>
+					<h6 class="card-title" [hidden]="contrallorChosen.grade == ''">GRADO: {{contrallorChosen.grade}}
+					</h6>
 					<h6 class="card-title">CONTRALOR</h6>
 				</div>
 			</div>
 		</div>
-		<div>
-			<div>
-				<div class="card-body">
-					<h5 class="card-title">
-						<a (click)="confirmElection()" class="btn btn-success">¿Deseas Confirmar tu elección?</a>
-					</h5>
-					<h5 class="card-title">
-						<a (click)="cancelElection()" class="btn btn-warning">¿Deseas Modificar tu elección?</a>
-					</h5>
-				</div>
-			</div>
-		</div>
+	</div>
+
+	<div class="container mb-2">
+		<h5 style="display: inline;">
+			<a (click)="confirmElection()" class="btn btn-lg btn-success">¿Deseas Confirmar tu elección? <i class="fas fa-check-circle"></i></a>
+		</h5>
+		<h5 style="display: inline;">
+			<a (click)="cancelElection()" class="btn btn-lg btn-warning">¿Deseas Modificar tu elección? <i class="fas fa-pen"></i></a>
+		</h5>
 	</div>
 </div>
