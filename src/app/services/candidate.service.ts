@@ -27,11 +27,16 @@ export class CandidateService {
     const headers = new Headers();
     const token = JSON.parse(localStorage.getItem('currentUser')).token;
     const userId = JSON.parse(localStorage.getItem('currentUser')).user._id;
+    const locationId = JSON.parse(localStorage.getItem('currentUser')).user.location;
     headers.append('x-access-token', token);
     headers.append('Content-Type', 'application/json');
     const options = new RequestOptions({headers: headers});
     return this.http.post(environment.apiUrl + 'user/vote',
-      JSON.stringify({personVoteId: personeroId, contrallorVoteId: contrallorId, userId: userId}), options)
+      JSON.stringify({personVoteId: personeroId,
+         contrallorVoteId: contrallorId,
+         userId: userId,
+         location: locationId
+        }), options)
       .map(result => result);
   }
 
