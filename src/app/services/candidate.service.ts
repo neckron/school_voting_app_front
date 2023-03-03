@@ -51,7 +51,9 @@ export class CandidateService {
   getTotalVoting() {
     return this.http.get(environment.apiUrl + 'vote/results/general');
   }
-  
-  
 
+  getTResultsByLocation() {
+    return this.http.get(environment.apiUrl + 'vote/results/location');
+  }
+  
 }

@@ -57,9 +57,28 @@
 		</div>
 	</div>
 
-
-
-
+	<br> <br>
+	<hr>
+	`
+	<h3>Resultados por sede</h3>
+	<div class="card-deck">
+		<div class="card card_border text-white bg-dark mb-3"
+			style="max-width: 30rem; min-width: 20rem;"
+			*ngFor="let location of locations">
+			<div class="card-header">{{location._id}}</div>
+			<div class="card-body">
+				<h5>Personeros</h5>
+				<div *ngFor="let votoPersoneros of location.votosPersoneros">
+					<h6 class="card-title">{{votoPersoneros.personero}} : {{votoPersoneros.count}}</h6>
+				</div>
+				<hr>
+				<h5>Contralores</h5>
+				<div *ngFor="let votoContralores of location.votosContralores">
+					<h6 class="card-title">{{votoContralores.contrallorId}} : {{votoContralores.count}}</h6>
+				</div>
+			</div>
+		</div>
+    </div>
 
 </div>
 

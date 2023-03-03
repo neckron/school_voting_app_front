@@ -38,6 +38,8 @@ export class VoteComponent implements OnInit {
       subscribe((data) => {
         this.personeros = data;
       });
+
+      
   }
 
   personeroVote(param) {

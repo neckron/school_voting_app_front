@@ -23,6 +23,7 @@ export class HomeComponent implements OnInit {
   generalChartLabels: string[] = [];
   generalChartData: number[] = [];
   generalChartType: String = 'pie';
+  locations: Response;
 
   public chartColors: any[] = [
     {
@@ -36,6 +37,7 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
+
     this.candidateService.getResultsContrallor().
       map(res => res.json()).
       subscribe((data) => {
@@ -69,6 +71,12 @@ export class HomeComponent implements OnInit {
           }
         }
       });
+
+      this.candidateService.getTResultsByLocation()
+       .map(res => res.json()).
+      subscribe((data) => {
+        this.locations = data;
+      });
   }
 
   // events
@@ -79,6 +87,5 @@ export class HomeComponent implements OnInit {
   public chartHovered(e: any): void {
     console.log(e);
   }
-
 
 }
