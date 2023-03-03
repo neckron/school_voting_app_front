@@ -44,8 +44,7 @@
 					<h5><strong>{{contrallor.name}} {{contrallor.lastname}}</strong></h5>
 				</div>
 				<div class="card-body">
-					<h6 class="card-title" [hidden]="contrallor.grade == ''">NÚMERO: {{contrallor.candidatenumber}}
-					</h6>
+					<h6 class="card-title" [hidden]="contrallor.grade == ''">NÚMERO: {{contrallor.candidatenumber}}</h6>
 					<h6 class="card-title" [hidden]="contrallor.grade == ''">GRADO: {{contrallor.grade}}</h6>
 				</div>
 				<a (click)="contrallorVote(contrallor)" class="btn btn-lg btn-primary"><i class="fas fa-vote-yea"></i>
