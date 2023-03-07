@@ -73,17 +73,17 @@ export class HomeComponent implements OnInit {
         }
       });
 
-      this.candidateService.getTResultsByLocationPerson()
-       .map(res => res.json()).
-      subscribe((data) => {
-        this.locationsByPerson = data;
-      });
+    this.candidateService.getResultsByLocationPerson()
+      .map(res => res.json()).
+    subscribe((data) => {
+      this.locationsByPerson = data;
+    });
 
-      this.candidateService.getTResultsByLocationContrallor()
-       .map(res => res.json()).
-      subscribe((data) => {
-        this.locationsByContrallor = data;
-      });
+    this.candidateService.getResultsByLocationContrallor()
+      .map(res => res.json()).
+    subscribe((data) => {
+      this.locationsByContrallor = data;
+    });
   }
 
   // events
