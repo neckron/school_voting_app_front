@@ -23,7 +23,8 @@ export class HomeComponent implements OnInit {
   generalChartLabels: string[] = [];
   generalChartData: number[] = [];
   generalChartType: String = 'pie';
-  locations: Response;
+  locationsByPerson: Response;
+  locationsByContrallor: Response;
 
   public chartColors: any[] = [
     {
@@ -72,10 +73,16 @@ export class HomeComponent implements OnInit {
         }
       });
 
-      this.candidateService.getTResultsByLocation()
+      this.candidateService.getTResultsByLocationPerson()
        .map(res => res.json()).
       subscribe((data) => {
-        this.locations = data;
+        this.locationsByPerson = data;
+      });
+
+      this.candidateService.getTResultsByLocationContrallor()
+       .map(res => res.json()).
+      subscribe((data) => {
+        this.locationsByContrallor = data;
       });
   }
 

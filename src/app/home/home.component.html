@@ -64,7 +64,7 @@
 	<div class="card-deck">
 		<div class="card card_border text-white bg-dark mb-3"
 			style="max-width: 30rem; min-width: 20rem;"
-			*ngFor="let location of locations">
+			*ngFor="let location of locationsByPerson">
 			<div class="card-header">{{location._id}}</div>
 			<div class="card-body">
 				<h5>Personeros</h5>
@@ -72,13 +72,23 @@
 					<h6 class="card-title">{{votoPersoneros.personero}} : {{votoPersoneros.count}}</h6>
 				</div>
 				<hr>
-				<h5>Contralores</h5>
-				<div *ngFor="let votoContralores of location.votosContralores">
-					<h6 class="card-title">{{votoContralores.contrallorId}} : {{votoContralores.count}}</h6>
-				</div>
 			</div>
 		</div>
     </div>
+
+	<p>
+		<a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+		  Link with href
+		</a>
+		<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+		  Button with data-target
+		</button>
+	  </p>
+	  <div class="collapse" id="collapseExample">
+		<div class="card card-body">
+		  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+		</div>
+	  </div>
 
 </div>
 

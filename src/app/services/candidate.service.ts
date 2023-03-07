@@ -52,8 +52,12 @@ export class CandidateService {
     return this.http.get(environment.apiUrl + 'vote/results/general');
   }
 
-  getTResultsByLocation() {
-    return this.http.get(environment.apiUrl + 'vote/results/location');
+  getTResultsByLocationPerson() {
+    return this.http.get(environment.apiUrl + 'vote/results/locationByPerson');
+  }
+
+  getTResultsByLocationContrallor() {
+    return this.http.get(environment.apiUrl + 'vote/results/locationByContrallor');
   }
   
 }
