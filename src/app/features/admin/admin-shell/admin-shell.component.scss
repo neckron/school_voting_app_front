@@ -1,0 +1,79 @@
+.sidenav-container {
+  height: 100vh;
+}
+
+.sidenav {
+  width: 220px;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border-right: 1px solid #e0e0e0;
+}
+
+.sidenav-logo {
+  padding: 20px 16px 12px;
+  text-align: center;
+}
+
+.sidenav-logo-img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto 8px;
+}
+
+.sidenav-school-name {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #004F97;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.sidenav-spacer {
+  flex: 1;
+}
+
+.active-link {
+  background-color: #E3F2FD !important;
+  color: #004F97 !important;
+
+  mat-icon {
+    color: #004F97;
+  }
+}
+
+.logout-item {
+  color: #c62828;
+  cursor: pointer;
+
+  mat-icon {
+    color: #c62828;
+  }
+}
+
+.sidenav-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.content-toolbar {
+  flex-shrink: 0;
+}
+
+.toolbar-spacer {
+  flex: 1 1 auto;
+}
+
+.admin-name {
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+.content-area {
+  flex: 1;
+  overflow-y: auto;
+  padding: 24px;
+}

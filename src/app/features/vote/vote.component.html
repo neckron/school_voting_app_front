@@ -1,0 +1,197 @@
+<mat-toolbar color="primary" class="vote-toolbar">
+  <span>{{ appTitle }}</span>
+  <span class="toolbar-spacer"></span>
+  @if (currentUser) {
+    <span class="user-name">{{ currentUser.name }}</span>
+  }
+</mat-toolbar>
+
+<div class="vote-container">
+  <mat-stepper linear #stepper class="vote-stepper">
+
+    <!-- Step 1: Personero -->
+    <mat-step [stepControl]="personeroForm" label="Elige Personero">
+      <div class="step-content">
+        <h2 class="step-title">Selecciona tu candidato a Personero</h2>
+        @if (personeros.length === 0) {
+          <div class="loading-wrapper">
+            <mat-spinner diameter="48" />
+          </div>
+        } @else {
+          <div class="candidates-grid">
+            @for (candidate of personeros; track candidate._id) {
+              <mat-card
+                class="candidate-card"
+                [class.selected]="personeroChosen?._id === candidate._id"
+                (click)="selectPersonero(candidate)"
+              >
+                <mat-card-content>
+                  <div class="candidate-number"># {{ candidate.candidatenumber }}</div>
+                  <img
+                    [src]="candidate.pictureURI"
+                    [alt]="candidate.name"
+                    class="candidate-photo"
+                    (error)="$any($event.target).src = 'assets/escudo.png'"
+                  />
+                  <h3 class="candidate-name">{{ candidate.name }}</h3>
+                  @if (candidate.grade) {
+                    <p class="candidate-grade">Grado: {{ candidate.grade }}</p>
+                  }
+                </mat-card-content>
+                <mat-card-actions>
+                  <button
+                    mat-icon-button
+                    color="primary"
+                    [class.selected-btn]="personeroChosen?._id === candidate._id"
+                    (click)="selectPersonero(candidate); $event.stopPropagation()"
+                  >
+                    <mat-icon>
+                      {{ personeroChosen?._id === candidate._id ? 'check_circle' : 'radio_button_unchecked' }}
+                    </mat-icon>
+                  </button>
+                </mat-card-actions>
+              </mat-card>
+            }
+          </div>
+        }
+        <div class="step-actions">
+          <button
+            mat-raised-button
+            color="primary"
+            matStepperNext
+            [disabled]="!personeroChosen"
+          >
+            Siguiente
+          </button>
+        </div>
+      </div>
+    </mat-step>
+
+    <!-- Step 2: Contralor -->
+    <mat-step [stepControl]="contrallorForm" label="Elige Contralor">
+      <div class="step-content">
+        <h2 class="step-title">Selecciona tu candidato a Contralor</h2>
+        @if (contrallors.length === 0) {
+          <div class="loading-wrapper">
+            <mat-spinner diameter="48" />
+          </div>
+        } @else {
+          <div class="candidates-grid">
+            @for (candidate of contrallors; track candidate._id) {
+              <mat-card
+                class="candidate-card"
+                [class.selected]="contrallorChosen?._id === candidate._id"
+                (click)="selectContrallor(candidate)"
+              >
+                <mat-card-content>
+                  <div class="candidate-number"># {{ candidate.candidatenumber }}</div>
+                  <img
+                    [src]="candidate.pictureURI"
+                    [alt]="candidate.name"
+                    class="candidate-photo"
+                    (error)="$any($event.target).src = 'assets/escudo.png'"
+                  />
+                  <h3 class="candidate-name">{{ candidate.name }}</h3>
+                  @if (candidate.grade) {
+                    <p class="candidate-grade">Grado: {{ candidate.grade }}</p>
+                  }
+                </mat-card-content>
+                <mat-card-actions>
+                  <button
+                    mat-icon-button
+                    color="primary"
+                    [class.selected-btn]="contrallorChosen?._id === candidate._id"
+                    (click)="selectContrallor(candidate); $event.stopPropagation()"
+                  >
+                    <mat-icon>
+                      {{ contrallorChosen?._id === candidate._id ? 'check_circle' : 'radio_button_unchecked' }}
+                    </mat-icon>
+                  </button>
+                </mat-card-actions>
+              </mat-card>
+            }
+          </div>
+        }
+        <div class="step-actions">
+          <button mat-stroked-button matStepperPrevious class="back-btn">Atrás</button>
+          <button
+            mat-raised-button
+            color="primary"
+            matStepperNext
+            [disabled]="!contrallorChosen"
+          >
+            Siguiente
+          </button>
+        </div>
+      </div>
+    </mat-step>
+
+    <!-- Step 3: Confirm -->
+    <mat-step label="Confirmar">
+      <div class="step-content confirm-step">
+        <h2 class="step-title">Confirma tu voto</h2>
+        <div class="confirm-grid">
+          <mat-card class="confirm-card">
+            <mat-card-header>
+              <mat-card-title>Personero</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              @if (personeroChosen) {
+                <img
+                  [src]="personeroChosen.pictureURI"
+                  [alt]="personeroChosen.name"
+                  class="confirm-photo"
+                  (error)="$any($event.target).src = 'assets/escudo.png'"
+                />
+                <p class="confirm-name">{{ personeroChosen.name }}</p>
+                <p class="confirm-number"># {{ personeroChosen.candidatenumber }}</p>
+              }
+            </mat-card-content>
+          </mat-card>
+
+          <mat-card class="confirm-card">
+            <mat-card-header>
+              <mat-card-title>Contralor</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              @if (contrallorChosen) {
+                <img
+                  [src]="contrallorChosen.pictureURI"
+                  [alt]="contrallorChosen.name"
+                  class="confirm-photo"
+                  (error)="$any($event.target).src = 'assets/escudo.png'"
+                />
+                <p class="confirm-name">{{ contrallorChosen.name }}</p>
+                <p class="confirm-number"># {{ contrallorChosen.candidatenumber }}</p>
+              }
+            </mat-card-content>
+          </mat-card>
+        </div>
+
+        <div class="step-actions confirm-actions">
+          <button
+            mat-stroked-button
+            color="warn"
+            (click)="modifyVote(); stepper.reset()"
+            class="modify-btn"
+          >
+            Modificar
+          </button>
+          <button
+            mat-raised-button
+            color="primary"
+            (click)="confirmVote()"
+            [disabled]="submitting"
+          >
+            @if (submitting) {
+              <mat-spinner diameter="20" class="inline-spinner" />
+            } @else {
+              Confirmar Voto
+            }
+          </button>
+        </div>
+      </div>
+    </mat-step>
+
+  </mat-stepper>
+</div>

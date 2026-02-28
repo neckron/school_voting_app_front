@@ -1,0 +1,44 @@
+<mat-sidenav-container class="sidenav-container">
+
+  <mat-sidenav mode="side" opened class="sidenav">
+    <div class="sidenav-logo">
+      <img src="assets/escudo.png" alt="Escudo" class="sidenav-logo-img" />
+      <p class="sidenav-school-name">{{ appTitle }}</p>
+    </div>
+
+    <mat-divider />
+
+    <mat-nav-list>
+      <a mat-list-item routerLink="/admin/dashboard" routerLinkActive="active-link">
+        <mat-icon matListItemIcon>dashboard</mat-icon>
+        <span matListItemTitle>Dashboard</span>
+      </a>
+    </mat-nav-list>
+
+    <div class="sidenav-spacer"></div>
+
+    <mat-divider />
+
+    <mat-nav-list>
+      <a mat-list-item (click)="logout()" class="logout-item">
+        <mat-icon matListItemIcon>logout</mat-icon>
+        <span matListItemTitle>Cerrar sesión</span>
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content class="sidenav-content">
+    <mat-toolbar color="primary" class="content-toolbar">
+      <span>{{ appTitle }}</span>
+      <span class="toolbar-spacer"></span>
+      @if (currentUser) {
+        <span class="admin-name">{{ currentUser.name }}</span>
+      }
+    </mat-toolbar>
+
+    <div class="content-area">
+      <router-outlet />
+    </div>
+  </mat-sidenav-content>
+
+</mat-sidenav-container>

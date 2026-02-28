@@ -1,0 +1,169 @@
+.vote-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.toolbar-spacer {
+  flex: 1 1 auto;
+}
+
+.user-name {
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+.vote-container {
+  max-width: 960px;
+  margin: 24px auto;
+  padding: 0 16px;
+}
+
+.vote-stepper {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+}
+
+.step-content {
+  padding: 24px 16px;
+}
+
+.step-title {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #004F97;
+  margin: 0 0 20px;
+}
+
+.loading-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 40px 0;
+}
+
+.candidates-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.candidate-card {
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  text-align: center;
+  border: 2px solid transparent;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15) !important;
+  }
+
+  &.selected {
+    border-color: #004F97;
+    background-color: #E3F2FD;
+  }
+}
+
+.candidate-number {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #FFB300;
+  margin-bottom: 8px;
+}
+
+.candidate-photo {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto 8px;
+  border: 2px solid #e0e0e0;
+}
+
+.candidate-name {
+  font-size: 0.95rem;
+  font-weight: 500;
+  margin: 0 0 4px;
+}
+
+.candidate-grade {
+  font-size: 0.8rem;
+  color: #666;
+  margin: 0;
+}
+
+.selected-btn {
+  color: #004F97 !important;
+}
+
+.step-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.back-btn {
+  margin-right: auto;
+}
+
+.confirm-step {
+  .step-title {
+    text-align: center;
+  }
+}
+
+.confirm-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  max-width: 500px;
+  margin: 0 auto 24px;
+
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+    max-width: 240px;
+  }
+}
+
+.confirm-card {
+  text-align: center;
+}
+
+.confirm-photo {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  margin: 12px auto 8px;
+  border: 3px solid #004F97;
+}
+
+.confirm-name {
+  font-size: 1rem;
+  font-weight: 500;
+  margin: 4px 0;
+}
+
+.confirm-number {
+  font-size: 0.9rem;
+  color: #FFB300;
+  font-weight: 700;
+}
+
+.confirm-actions {
+  justify-content: center;
+}
+
+.modify-btn {
+  margin-right: 8px;
+}
+
+.inline-spinner {
+  display: inline-block;
+  margin: 0 auto;
+}

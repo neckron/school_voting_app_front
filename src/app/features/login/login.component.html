@@ -1,0 +1,43 @@
+<div class="login-container">
+  <mat-card class="login-card">
+    <mat-card-content>
+      <div class="logo-wrapper">
+        <img src="assets/escudo.png" alt="Escudo" class="school-logo" />
+      </div>
+      <h1 class="app-title">{{ appTitle }}</h1>
+      <h2 class="login-subtitle">Iniciar Sesión</h2>
+
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Usuario</mat-label>
+          <input matInput formControlName="username" autocomplete="username" />
+          @if (form.controls.username.hasError('required') && form.controls.username.touched) {
+            <mat-error>El usuario es requerido</mat-error>
+          }
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Contraseña</mat-label>
+          <input matInput type="password" formControlName="password" autocomplete="current-password" />
+          @if (form.controls.password.hasError('required') && form.controls.password.touched) {
+            <mat-error>La contraseña es requerida</mat-error>
+          }
+        </mat-form-field>
+
+        <button
+          mat-raised-button
+          color="primary"
+          type="submit"
+          class="full-width submit-btn"
+          [disabled]="loading"
+        >
+          @if (loading) {
+            <mat-spinner diameter="20" class="inline-spinner" />
+          } @else {
+            Ingresar
+          }
+        </button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>
