@@ -31,7 +31,7 @@ import { environment } from '../../../environments/environment';
   styleUrl: './vote.component.scss'
 })
 export class VoteComponent implements OnInit {
-  private candidateService = inject(CandidateService);
+  readonly candidateService = inject(CandidateService);
   private router = inject(Router);
   private notify = inject(NotificationService);
   private fb = inject(FormBuilder);

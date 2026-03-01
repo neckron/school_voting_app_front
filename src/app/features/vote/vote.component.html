@@ -33,7 +33,7 @@
                 <mat-card-content>
                   <div class="candidate-number"># {{ candidate.candidatenumber }}</div>
                   <img
-                    [src]="candidate.pictureURI"
+                    [src]="candidateService.photoUrl(candidate.pictureURI)"
                     [alt]="candidate.name"
                     class="candidate-photo"
                     (error)="$any($event.target).src = 'assets/escudo.png'"
@@ -91,7 +91,7 @@
                 <mat-card-content>
                   <div class="candidate-number"># {{ candidate.candidatenumber }}</div>
                   <img
-                    [src]="candidate.pictureURI"
+                    [src]="candidateService.photoUrl(candidate.pictureURI)"
                     [alt]="candidate.name"
                     class="candidate-photo"
                     (error)="$any($event.target).src = 'assets/escudo.png'"
@@ -143,7 +143,7 @@
             <mat-card-content>
               @if (personeroChosen) {
                 <img
-                  [src]="personeroChosen.pictureURI"
+                  [src]="candidateService.photoUrl(personeroChosen.pictureURI)"
                   [alt]="personeroChosen.name"
                   class="confirm-photo"
                   (error)="$any($event.target).src = 'assets/escudo.png'"
@@ -161,7 +161,7 @@
             <mat-card-content>
               @if (contrallorChosen) {
                 <img
-                  [src]="contrallorChosen.pictureURI"
+                  [src]="candidateService.photoUrl(contrallorChosen.pictureURI)"
                   [alt]="contrallorChosen.name"
                   class="confirm-photo"
                   (error)="$any($event.target).src = 'assets/escudo.png'"

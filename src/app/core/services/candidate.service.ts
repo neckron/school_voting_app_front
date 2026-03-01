@@ -5,9 +5,19 @@ import { environment } from '../../../environments/environment';
 import { Candidate } from '../models/candidate.model';
 import { VoteResult, LocationResult } from '../models/vote.model';
 
+// Base URL of the API without the /api/ suffix, used to resolve relative image paths
+const apiOrigin = environment.apiUrl.replace(/\/api\/?$/, '');
+
 @Injectable({ providedIn: 'root' })
 export class CandidateService {
   private http = inject(HttpClient);
+
+  /** Resolves a pictureURI to a full URL. Absolute URLs are returned as-is. */
+  photoUrl(uri: string): string {
+    if (!uri) return 'assets/escudo.png';
+    if (uri.startsWith('http')) return uri;
+    return `${apiOrigin}${uri}`;
+  }
 
   getCandidates(type: string): Observable<Candidate[]> {
     return this.http.get<Candidate[]>(environment.apiUrl + 'candidate/' + type);
