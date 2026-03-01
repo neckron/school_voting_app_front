@@ -44,7 +44,7 @@
 
 .candidates-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
   gap: 16px;
   margin-bottom: 24px;
 }
@@ -67,15 +67,15 @@
 }
 
 .candidate-number {
-  font-size: 0.85rem;
+  font-size: 1rem;
   font-weight: 700;
   color: #FFB300;
   margin-bottom: 8px;
 }
 
 .candidate-photo {
-  width: 90px;
-  height: 90px;
+  width: 135px;
+  height: 135px;
   border-radius: 50%;
   object-fit: cover;
   display: block;
@@ -84,13 +84,13 @@
 }
 
 .candidate-name {
-  font-size: 0.95rem;
+  font-size: 1.1rem;
   font-weight: 500;
   margin: 0 0 4px;
 }
 
 .candidate-grade {
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   color: #666;
   margin: 0;
 }
