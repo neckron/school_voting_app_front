@@ -16,7 +16,8 @@ export class CandidateService {
   photoUrl(uri: string): string {
     if (!uri) return 'assets/escudo.png';
     if (uri.startsWith('http')) return uri;
-    return `${apiOrigin}${uri}`;
+    if (uri.startsWith('/')) return `${apiOrigin}${uri}`;
+    return uri; // relative path (e.g. assets/c26.jpg) — served by frontend
   }
 
   getCandidates(type: string): Observable<Candidate[]> {
