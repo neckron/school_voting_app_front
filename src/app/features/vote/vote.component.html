@@ -2,7 +2,12 @@
   <span>{{ appTitle }}</span>
   <span class="toolbar-spacer"></span>
   @if (currentUser) {
-    <span class="user-name">{{ currentUser.name }}</span>
+    <span class="user-name">
+      {{ currentUser.name }}
+      @if (currentUser.location) { &nbsp;·&nbsp;{{ currentUser.location }} }
+      @if (currentUser.grade) { &nbsp;·&nbsp;{{ currentUser.grade }} }
+      @if (currentUser.course) { &nbsp;·&nbsp;{{ currentUser.course }} }
+    </span>
   }
 </mat-toolbar>
 
