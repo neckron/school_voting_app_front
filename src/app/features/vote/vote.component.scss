@@ -75,8 +75,8 @@
 
 .candidate-photo {
   width: 135px;
-  height: 135px;
-  border-radius: 50%;
+  height: 160px;
+  border-radius: 8px;
   object-fit: cover;
   display: block;
   margin: 0 auto 8px;
@@ -135,8 +135,8 @@
 
 .confirm-photo {
   width: 100px;
-  height: 100px;
-  border-radius: 50%;
+  height: 120px;
+  border-radius: 8px;
   object-fit: cover;
   display: block;
   margin: 12px auto 8px;
