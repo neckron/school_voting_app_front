@@ -1,8 +1,14 @@
 import { Injectable, inject } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from '../../../environments/environment';
 import { User } from '../models/user.model';
+
+export interface PendingVoter {
+  name: string;
+  location?: string;
+  course?: string;
+}
 
 export interface LoginResponse {
   user: User;
@@ -28,5 +34,12 @@ export class AuthService {
 
   isLoggedIn(): boolean {
     return !!localStorage.getItem('currentUser');
+  }
+
+  getPendingVoters(): Observable<PendingVoter[]> {
+    const stored = localStorage.getItem('currentUser');
+    const token = stored ? JSON.parse(stored)?.token ?? '' : '';
+    const headers = new HttpHeaders({ 'x-access-token': token });
+    return this.http.get<PendingVoter[]>(environment.apiUrl + 'user/pending', { headers });
   }
 }

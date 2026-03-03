@@ -29,6 +29,11 @@ export const routes: Routes = [
         loadComponent: () =>
           import('./features/admin/dashboard/dashboard.component').then(m => m.DashboardComponent)
       },
+      {
+        path: 'pending',
+        loadComponent: () =>
+          import('./features/admin/pending-voters/pending-voters.component').then(m => m.PendingVotersComponent)
+      },
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' }
     ]
   },
