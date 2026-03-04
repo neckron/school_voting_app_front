@@ -1,20 +1,35 @@
-@if (loading) {
-  <div class="loading-overlay">
-    <mat-spinner diameter="56" />
-    <p>Cargando...</p>
+<h1 class="page-title">Pendientes por votar</h1>
+
+@if (!loaded) {
+  <div class="load-prompt">
+    <button mat-raised-button color="primary" (click)="load()" [disabled]="loading">
+      <mat-icon>group</mat-icon>
+      {{ loading ? 'Cargando...' : 'Cargar pendientes' }}
+    </button>
+    @if (loading) {
+      <mat-spinner diameter="32" />
+    }
   </div>
 } @else {
-  <h1 class="page-title">Pendientes por votar</h1>
-
   <mat-card class="table-card">
     <mat-card-content>
-      @if (pendingVoters.length === 0) {
+      <div class="card-header">
+        <p class="count-label">{{ pendingVoters.length }} votante(s) pendiente(s)</p>
+        <button mat-icon-button (click)="load()" [disabled]="loading" title="Actualizar">
+          <mat-icon>refresh</mat-icon>
+        </button>
+      </div>
+
+      @if (loading) {
+        <div class="loading-overlay">
+          <mat-spinner diameter="40" />
+        </div>
+      } @else if (pendingVoters.length === 0) {
         <div class="empty-state">
           <mat-icon class="empty-icon">how_to_vote</mat-icon>
           <p>¡Todos han votado!</p>
         </div>
       } @else {
-        <p class="count-label">{{ pendingVoters.length }} votante(s) pendiente(s)</p>
         <table mat-table [dataSource]="pendingVoters" class="pending-table">
 
           <ng-container matColumnDef="name">
